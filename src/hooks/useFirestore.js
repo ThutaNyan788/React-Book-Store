@@ -11,7 +11,7 @@ export default function useFirestore() {
         let [loading, setLoading] = useState(false);
 
         useEffect(function () {
-            setLoading(true);
+            setLoading(true)
             let ref = collection(db, colName);
             let qureires = [];
             if(qRef){
@@ -22,38 +22,42 @@ export default function useFirestore() {
             onSnapshot(q, docs => {
                 if (docs.empty) {
                     setError('no documents found');
-                    setLoading(false);
+                    setLoading(false)
                     setData([]);
                 } else {
                     let collectionDatas = [];
                     docs.forEach(doc => {
                         let document = { id: doc.id, ...doc.data() }
                         collectionDatas.push(document)
-                    });
+                    })
 
-                    if(search?.field && search?.value){
-                        let searchedDatas = collectionDatas.filter((doc)=>{
-                            return doc[search?.field].includes(search?.value);
-                        });
-                        console.log(searchedDatas);
+                    if(search?.field && search?.value) {
+                    
                         
-
+                       let searchedDatas = collectionDatas.filter(data => data[search.field].toLowerCase().includes(search.value.toLowerCase()))
+                        
+                      
+                      
+                        
+                        
                         setData(searchedDatas);
-                    }else{
+                    }else {
                         setData(collectionDatas);
                     }
-
-                    // setData(collectionDatas);
                     setLoading(false)
                     setError('');
                 }
             })
+
+     
+            
         }, [qRef,search?.field,search?.value])
 
 
         return {error,data,loading};
     }
 
+   
     let getDocument = (colName,id) => {
 
         let [error, setError] = useState('');

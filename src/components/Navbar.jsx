@@ -15,8 +15,7 @@ export default function Navbar() {
     let { user } = useContext(AuthContext);
 
     let handleSearch = (e) => {
-        e.preventDefault();
-        
+                
         navigate('/?search=' + search);
     }
 
