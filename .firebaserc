@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "library-app-542b1",
+    "Library-app": "library-app-542b1"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
