@@ -25,7 +25,7 @@ export default function NoteList() {
                         <div>
                             <img src="https://randomuser.me/api/portraits/lego/5.jpg" alt="" className='w-12 h-12 rounded-full' />
                             <div>
-                                <h3>Hlaing min than</h3>
+                                <h3>Thu Ta</h3>
                                 <div className='text-gray-400'>{moment(note?.date?.seconds * 1000).fromNow()}</div>
                             </div>
                         </div>
